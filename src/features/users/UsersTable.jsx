@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useEffect, useMemo, useState } from "react";
 import Spinner from '../../ui/Spinner';
 import UserRow from "./UserRow";
-import { useData } from "../../context/useDate";
+import { useData } from "../../context/useData";
 
 const Table = styled.div`
     border: 1px solid var(--color-grey-200); 
@@ -39,8 +39,8 @@ const UsersTable = ({ searchName }) => {
     const [loading, setLoading] = useState(false);
     const [users, setUsers] = useState([]);
     const [error, setError] = useState(null);
-    const { token } = useData();
-
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     useEffect(() => {
         async function getUsers() {
             setLoading(true);

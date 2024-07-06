@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../ui/Spinner";
 import styled from "styled-components";
 import Button from '../ui/Button';
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 const Container = styled.div`
     display: flex; 
@@ -77,7 +77,8 @@ export default function Nurse() {
     const [nurse, setNurse] = useState([]);
     const { id } = useParams();
     const navigate = useNavigate();
-    const { token } = useData();
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
 
     useEffect(function () {
         async function getNurse() {

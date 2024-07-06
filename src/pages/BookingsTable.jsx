@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 import BookingRow from '../pages/BookingRow'
 const Table = styled.div`
     border: 1px solid var(--color-grey-200); 

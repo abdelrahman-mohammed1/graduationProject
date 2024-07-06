@@ -6,7 +6,7 @@ import Spinner from "../ui/Spinner";
 import Row from '../ui/Row';
 import styled from "styled-components";
 import Button from '../ui/Button';
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 const Container = styled.div`
     display: flex; 
@@ -46,7 +46,8 @@ export default function User() {
     const [error, setError] = useState(null);
     const { id } = useParams();
     const navigate = useNavigate();
-    const { token } = useData();
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
 
     useEffect(() => {
         async function getUser() {

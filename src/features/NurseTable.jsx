@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NurseRow from "./NurseRow";
 import { useEffect, useMemo, useState } from "react";
 import Spinner from "../ui/Spinner";
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 const Table = styled.div`
   border: 1px solid var(--color-grey-200);

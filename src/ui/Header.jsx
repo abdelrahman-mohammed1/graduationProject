@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import Logout from "../features/auth/Logout"
 import { useEffect, useState } from "react"
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 import Spinner from "./Spinner";
 import HeaderMenu from "./HeaderMenu";
 const StyledHeader = styled.header`
@@ -18,7 +18,9 @@ const StyledHeader = styled.header`
 export default function Header() {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([])
-    const { token } = useData();
+
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     useEffect(() => {
         async function getMe() {
             setLoading(true);
