@@ -8,7 +8,7 @@ import { Slide, toast } from "react-toastify";
 import SpinnerMini from "../../ui/SpinnerMini";
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 import styled from "styled-components";
-import { useData } from "../../context/useDate";
+import { useData } from "../../context/useData";
 import { useNavigate } from "react-router-dom";
 
 
@@ -81,7 +81,7 @@ function LoginForm() {
 
     });
     setToken(data?.token);
-
+    localStorage.setItem('access_token', JSON.stringify(data?.token))
     naviagate('/dashboard')
 
   }

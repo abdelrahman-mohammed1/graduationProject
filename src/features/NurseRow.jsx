@@ -10,7 +10,7 @@ import DeleteForm from "./DeleteForm";
 
 import { HiEye } from "react-icons/hi2";
 import { useNavigate } from "react-router-dom";
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 import { toast } from "react-toastify";
 const TableRow = styled.div`
  
@@ -72,7 +72,8 @@ export default function CabinRow({ nurse }) {
 
   const [deleteForm, setDeleteForm] = useState(false);
   const [isActive, setIsActive] = useState(nurse.active);
-  const { token } = useData();
+  const token = JSON.parse(localStorage.getItem('access_token'))
+  console.log(token)
   const naviagte = useNavigate();
   const { _id, name, photo, specialization, yearsOfExperience, city, governorate: { name: governorateName }, email } = nurse;
   // useEffect(() => {

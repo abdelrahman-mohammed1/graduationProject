@@ -1,7 +1,7 @@
 
 import styled from "styled-components";
 import Button from '../ui/Button';
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 const Row = styled.div`
     display: flex;

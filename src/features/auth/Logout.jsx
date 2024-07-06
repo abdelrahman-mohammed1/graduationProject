@@ -2,12 +2,13 @@ import { HiArrowRightOnRectangle } from "react-icons/hi2";
 import ButtonIcon from '../../ui/ButtonIcon';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import { useData } from "../../context/useDate";
+import { useData } from "../../context/useData";
 
 export default function Logout() {
     const navigate = useNavigate();
-    const { token } = useData();
 
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     const logout = async () => {
         try {
             const res = await fetch('https://we-care-server-seven.vercel.app/api/v1/auth/logout/', {

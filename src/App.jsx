@@ -14,7 +14,7 @@ import User from "./pages/User";
 import Nurse from './pages/Nurse'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { DateContext } from './context/useDate'
+import { DateContext } from './context/useData'
 import SignupForm from "./features/CreateNewAdmin/SignupForm";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import Booking from "./pages/Booking";

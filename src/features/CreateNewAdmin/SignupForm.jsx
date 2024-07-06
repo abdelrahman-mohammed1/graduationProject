@@ -6,7 +6,7 @@ import FormRow from '../../ui/FormRow';
 import Input from "../../ui/Input";
 import { HiEye, HiEyeSlash } from "react-icons/hi2";
 import { useForm, useController } from "react-hook-form";
-import { useData } from "../../context/useDate";
+import { useData } from "../../context/useData";
 import { Slide, toast } from "react-toastify";
 import SpinnerMini from "../../ui/SpinnerMini";
 import Heading from "../../ui/Heading";
@@ -42,8 +42,9 @@ function SignupForm() {
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(false);
   const [loadingCity, setLoadingCity] = useState(false);
-  const { data: governorate, token } = useData();
-
+  const { data: governorate } = useData();
+  const token = JSON.parse(localStorage.getItem('access_token'))
+  console.log(token)
   const { field: governorateField } = useController({
     name: 'governorate',
     control,

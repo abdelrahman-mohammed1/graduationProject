@@ -15,10 +15,11 @@ function DateContext({ children }) {
     const [users, setUsers] = useState([]);
     const [nurses, setNurses] = useState([]);
     const [city, setCity] = useState([]);
-    const [token, setToken] = useState("");
+    const [token1, setToken] = useState("");
     const [getNurseLoading, setGetNurseLoading] = useState(false);
 
-
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     const [loadingBooking, setLoadingBooking] = useState(false);
     const [bookings, setBookings] = useState([]);
     useEffect(function () {

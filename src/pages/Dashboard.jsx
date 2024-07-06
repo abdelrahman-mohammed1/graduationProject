@@ -5,7 +5,7 @@ import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import Stat from "../ui/Stat";
 import Spinner from '../ui/Spinner'
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 import MyScatterChart from '../ui/SalesChart'
 
 

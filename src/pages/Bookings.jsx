@@ -4,7 +4,7 @@ import Heading from "../ui/Heading";
 import Row from "../ui/Row";
 import Input from "../ui/Input";
 import BookingsTable from "./BookingsTable";
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 import { useState } from 'react';
 
 function Bookings() {

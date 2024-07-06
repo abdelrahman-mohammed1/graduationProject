@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useData } from '../context/useDate';
+import { useData } from '../context/useData';
 import Spinner from '../ui/Spinner'
 import Button from '../ui/Button';
 const BookingContainer = styled.div`
@@ -72,7 +72,8 @@ const nurseRejectedStyle = {
 export default function Booking() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { token } = useData();
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     console.log(id);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false)

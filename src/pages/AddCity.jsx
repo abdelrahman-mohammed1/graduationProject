@@ -14,7 +14,7 @@ import Spinner from '../ui/Spinner';
 import SpinnerMini from '../ui/SpinnerMini';
 import { Slide, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 const Select = styled.select`
   font-size: 1.4rem;
@@ -54,8 +54,9 @@ function AddCity() {
     const [isLoading, setIsLoading] = useState(false);
     const [governorates, setGovernorates] = useState([]);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const { token } = useData();
 
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
     useEffect(() => {
         const loadGovernorates = async () => {
             try {

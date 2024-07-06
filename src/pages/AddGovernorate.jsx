@@ -10,7 +10,7 @@ import SpinnerMini from '../ui/SpinnerMini';
 import { useState } from "react";
 import { Slide, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { useData } from "../context/useDate";
+import { useData } from "../context/useData";
 
 // Function to make API call
 const addGovernorate = async (name, token) => {
@@ -33,7 +33,8 @@ const addGovernorate = async (name, token) => {
 function AddGovernorate() {
     const [isLoading, setIsLoading] = useState(false);
     const { register, handleSubmit, formState: { errors }, control, reset } = useForm();
-    const { token } = useData();
+    const token = JSON.parse(localStorage.getItem('access_token'))
+    console.log(token)
 
     const onSubmit = async (data) => {
         try {
