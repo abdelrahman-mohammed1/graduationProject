@@ -14,7 +14,7 @@ import { useData } from "../context/useData";
 
 // Function to make API call
 const addGovernorate = async (name, token) => {
-    const response = await fetch('https://we-care-server-seven.vercel.app/api/v1/governorates/', {
+    const response = await fetch(   `${import.meta.env.VITE_BASE_URL}governorates/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -85,7 +85,7 @@ export default function Nurse() {
             setLoading(true);
 
 
-            const res = await fetch(`https://we-care-server-seven.vercel.app/api/v1/nurses/${id}`, {
+            const res = await fetch(`${import.meta.env.VITE_BASE_URL}nurses/${id}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -110,7 +110,7 @@ export default function Nurse() {
                         <ProfileContainer>
                             <ImageContainer photo={photo || "https://via.placeholder.com/224x300.png?text=User+Photo"} />
                             <InfoContainer>
-                                <p><Span>Name :</Span>  {name}</p>
+                                <p><Span>Name :</Span>  {name}</p>  
                                 <p><Span>Gender :</Span> {gender}</p>
                                 <p><Span>Email :</Span>  {email}</p>
                                 <p><Span>Birth Year :</Span>  {dateOfBirth}</p>

@@ -31,14 +31,14 @@ const Select = styled.select`
 `;
 
 const fetchGovernorates = async () => {
-    const res = await fetch('https://we-care-server-seven.vercel.app/api/v1/governorates');
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}governorates`);
     if (!res.ok) throw new Error('Failed to fetch governorates');
     const data = await res.json();
     return data.data;
 };
 
 const addCity = async (cityData, token) => {
-    const res = await fetch('https://we-care-server-seven.vercel.app/api/v1/cities/', {
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}cities/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

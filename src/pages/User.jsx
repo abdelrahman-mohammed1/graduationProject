@@ -54,8 +54,8 @@ export default function User() {
             setLoading(true);
             setError(null);
 
-            try {
-                const res = await fetch(`https://we-care-server-seven.vercel.app/api/v1/users/${id}`, {
+            try {   
+                const res = await fetch(`${import.meta.env.VITE_BASE_URL}users/${id}`, {
                     headers: {
                         'Authorization': `Bearer ${token}`
                     }

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
@@ -11,23 +10,22 @@ import styled from "styled-components";
 import { useData } from "../../context/useData";
 import { useNavigate } from "react-router-dom";
 
-
 const IconShow = styled(HiEye)`
-    position: absolute;
-    top: 170px;
-    right: 61px;
-    cursor: pointer;
-    font-size: 17px; 
-    color:#097B94 ; 
-`
+  position: absolute;
+  top: 170px;
+  right: 61px;
+  cursor: pointer;
+  font-size: 17px;
+  color: #097b94;
+`;
 const IconNotShow = styled(HiEyeSlash)`
   position: absolute;
   top: 170px;
   right: 61px;
   cursor: pointer;
-  font-size: 17px; 
-  color:#097B94;
-`
+  font-size: 17px;
+  color: #097b94;
+`;
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -40,50 +38,46 @@ function LoginForm() {
     e.preventDefault();
     const data = {
       email,
-      password
+      password,
     };
-
 
     login(email, password);
   }
 
   async function login(email, password) {
     setLoading(true);
-    const res = await fetch('https://we-care-server-seven.vercel.app/api/v1/auth/login/', {
-      method: 'POST',
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}v1/auth/login/`, {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
 
     if (!res.ok) {
       setLoading(false);
       console.error("Login failed");
-      toast.error('User is Not exist!', {
+      toast.error("User is Not exist!", {
         transition: Slide,
         autoClose: 2000,
         delay: 1000,
-        pauseOnHover: false
-
+        pauseOnHover: false,
       });
 
       return;
     }
 
     const data = await res.json();
-    setLoading(false)
-    toast.success('User Login Successfully!', {
+    setLoading(false);
+    toast.success("User Login Successfully!", {
       transition: Slide,
       autoClose: 2000,
       delay: 1000,
-      pauseOnHover: false
-
+      pauseOnHover: false,
     });
     setToken(data?.token);
-    localStorage.setItem('access_token', JSON.stringify(data?.token))
-    naviagate('/dashboard')
-
+    localStorage.setItem("access_token", JSON.stringify(data?.token));
+    naviagate("/dashboard");
   }
 
   return (
@@ -102,7 +96,7 @@ function LoginForm() {
       <FormRowVertical label="Password" orientation="vertical">
         <Input
           kind="form"
-          type={show ? 'text' : 'password'}
+          type={show ? "text" : "password"}
           id="password"
           disabled={loading}
           autoComplete="current-password"
@@ -110,10 +104,14 @@ function LoginForm() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </FormRowVertical>
-      {show ? <IconShow onClick={() => setShow(false)} /> : <IconNotShow onClick={() => setShow(true)} />}
+      {show ? (
+        <IconShow onClick={() => setShow(false)} />
+      ) : (
+        <IconNotShow onClick={() => setShow(true)} />
+      )}
       <FormRowVertical orientation="vertical">
-        <Button size="large" disabled={loading} variation='basic'>
-          {loading ? <SpinnerMini /> : 'Login'}
+        <Button size="large" disabled={loading} variation="basic">
+          {loading ? <SpinnerMini /> : "Login"}
         </Button>
       </FormRowVertical>
     </Form>

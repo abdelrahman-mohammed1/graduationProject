@@ -42,7 +42,7 @@ function Nurses() {
   useEffect(function () {
     async function getGoverments() {
       setLoadingGoverment(true);
-      const res = await fetch(`https://we-care-server-seven.vercel.app/api/v1/governorates`);
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}governorates`);
       const data = await res.json();
       setLoadingGoverment(false)
       setGoverments(data.data);
@@ -56,7 +56,7 @@ function Nurses() {
     async function getCitiesSpecific() {
       if (!governorateId) return;
       setLoading(true);
-      const res = await fetch(`https://we-care-server-seven.vercel.app/api/v1/governorates/${governorateId}/cities`);
+      const res = await fetch(`${import.meta.env.VITE_BASE_URL}governorates/${governorateId}/cities`);
       const data = await res.json();
       setLoading(false);
       setAllCities(data?.data)

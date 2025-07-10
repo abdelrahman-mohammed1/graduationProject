@@ -26,7 +26,7 @@ export default function Header() {
             setLoading(true);
 
             try {
-                const res = await fetch('https://we-care-server-seven.vercel.app/api/v1/users/getMe', {
+                const res = await fetch(`${import.meta.env.VITE_BASE_URL}users/getMe`, {
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
