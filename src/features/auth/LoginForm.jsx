@@ -46,7 +46,7 @@ function LoginForm() {
 
   async function login(email, password) {
     setLoading(true);
-    const res = await fetch(`${import.meta.env.VITE_BASE_URL}v1/auth/login/`, {
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}auth/login/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

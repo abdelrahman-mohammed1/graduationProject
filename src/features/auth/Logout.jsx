@@ -12,7 +12,7 @@ export default function Logout() {
   const logout = async () => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_BASE_URL}v1/auth/logout/`,
+        `${import.meta.env.VITE_BASE_URL}auth/logout/`,
         {
           method: "POST",
           headers: {

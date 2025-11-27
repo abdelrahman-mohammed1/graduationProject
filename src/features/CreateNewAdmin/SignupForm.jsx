@@ -83,7 +83,7 @@ function SignupForm() {
     setLoading(true);
     try {
       const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}v1/users/`,
+        `${import.meta.env.VITE_BASE_URL}users/`,
         {
           method: "POST",
           headers: {

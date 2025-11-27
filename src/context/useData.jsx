@@ -94,7 +94,7 @@ function DateContext({ children }) {
     async function FetchData() {
       try {
         setIsLoading(true);
-        const res = await fetch(`${import.meta.env.VITE_BASE_URL}cities/`);
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}cities`);
         const data = await res.json();
         setCity(data);
       } catch {

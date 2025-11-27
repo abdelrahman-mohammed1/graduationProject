@@ -38,7 +38,7 @@ const fetchGovernorates = async () => {
 };
 
 const addCity = async (cityData, token) => {
-    const res = await fetch(`${import.meta.env.VITE_BASE_URL}cities/`, {
+    const res = await fetch(`${import.meta.env.VITE_BASE_URL}cities`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -83,7 +83,7 @@ export default function CabinRow({ nurse }) {
   async function handleActive() {
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_URL}v1/nurses/activate/${_id}`,
+        `${import.meta.env.VITE_BASE_URL}nurses/activate/${_id}`,
         {
           method: "POST",
           headers: {
@@ -108,7 +108,7 @@ export default function CabinRow({ nurse }) {
   async function handleInActive() {
     try {
       const response = await fetch(
-          `${import.meta.env.VITE_BASE_URL}v1/nurses/deactivate/${_id}`,
+          `${import.meta.env.VITE_BASE_URL}nurses/deactivate/${_id}`,
         {
           method: "POST",
           headers: {

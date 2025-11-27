@@ -46,7 +46,7 @@ const UsersTable = ({ searchName }) => {
       setError(null);
 
       try {
-        const res = await fetch(`${import.meta.env.VITE_BASE_URL}v1/users/`, {
+        const res = await fetch(`${import.meta.env.VITE_BASE_URL}users/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
